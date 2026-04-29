@@ -67,6 +67,23 @@ class Jurnal(Koleksi):
             f"Masukkan Impact Factor   : {self.impact_factor}\n"
         )
 
+#Class DVD
+class DVD(Koleksi):
+    def __init__(self, kode, judul, tahun_terbit, sutradara, durasi, penerbit):
+        super().__init__(judul, tahun_terbit, penerbit, kode)
+        self.sutradara = sutradara
+        self.durasi = durasi
+
+    def tampilkan_info(self):
+        print(
+            "DATA DVD\n"
+            f"Kode        : {self.kode}\n"
+            f"Judul       : {self.judul}\n"
+            f"Tahun Terbit: {self.tahun_terbit}\n"
+            f"Sutradara   : {self.sutradara}\n"
+            f"Durasi      : {self.durasi} menit\n"
+            f"Penerbit    : {self.penerbit}\n"
+        )
 
 # Menu Koleksi
 daftar_koleksi = []
@@ -76,6 +93,7 @@ def tambah_data():
     print("1. Buku")
     print("2. Majalah")
     print("3. Jurnal")
+    print("4. DVD")
     pilihan = input("Masukkan pilihan (1/2/3): ")
     print( "input tidak ada")
 
@@ -111,6 +129,16 @@ def tambah_data():
         daftar_koleksi.append(koran)
         print("Data koran berhasil ditambahkan.\n")
 
+    elif pilihan == '4':
+        kode = input("Masukkan Kode DVD: ")
+        judul = input("Masukkan Judul DVD: ")
+        tahun_terbit = input("Masukkan Tahun Terbit: ")
+        sutradara = input("Masukkan Sutradara: ")
+        durasi = input("Masukkan Durasi (menit): ")
+        penerbit = input("Masukkan Penerbit: ")
+        dvd = DVD(kode, judul, tahun_terbit, sutradara, durasi, penerbit)
+        daftar_koleksi.append(dvd)
+        print("Data DVD berhasil ditambahkan.\n")
     else:
         print("Pilihan tidak valid. Silakan coba lagi.\n")
 
